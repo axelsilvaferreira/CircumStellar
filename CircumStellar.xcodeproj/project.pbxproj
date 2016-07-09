@@ -16,6 +16,17 @@
 		A2DC706B1D308B7400D7530C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70691D308B7400D7530C /* LaunchScreen.storyboard */; };
 		A2DC70761D308B7400D7530C /* CircumStellarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC70751D308B7400D7530C /* CircumStellarTests.swift */; };
 		A2DC70811D308B7500D7530C /* CircumStellarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2DC70801D308B7500D7530C /* CircumStellarUITests.swift */; };
+		A2DC70911D308DB400D7530C /* fighterspr1.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70901D308DB400D7530C /* fighterspr1.png */; };
+		A2DC709C1D319DE100D7530C /* cartoonship blue.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70921D319DE100D7530C /* cartoonship blue.png */; };
+		A2DC709D1D319DE100D7530C /* F5S4.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70931D319DE100D7530C /* F5S4.png */; };
+		A2DC709E1D319DE100D7530C /* fighter-01.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70941D319DE100D7530C /* fighter-01.png */; };
+		A2DC70A01D319DE100D7530C /* ship3.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70961D319DE100D7530C /* ship3.png */; };
+		A2DC70A11D319DE100D7530C /* ship9.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70971D319DE100D7530C /* ship9.png */; };
+		A2DC70A21D319DE100D7530C /* space_rocket_v4-512.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70981D319DE100D7530C /* space_rocket_v4-512.png */; };
+		A2DC70A31D319DE100D7530C /* spaceship.pod_.1.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70991D319DE100D7530C /* spaceship.pod_.1.png */; };
+		A2DC70A41D319DE100D7530C /* spaceShipIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC709A1D319DE100D7530C /* spaceShipIcon.png */; };
+		A2DC70A51D319DE100D7530C /* st6.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC709B1D319DE100D7530C /* st6.png */; };
+		A2DC70A71D319F9700D7530C /* grad1.png in Resources */ = {isa = PBXBuildFile; fileRef = A2DC70A61D319F9700D7530C /* grad1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,17 @@
 		A2DC707C1D308B7500D7530C /* CircumStellarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CircumStellarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2DC70801D308B7500D7530C /* CircumStellarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircumStellarUITests.swift; sourceTree = "<group>"; };
 		A2DC70821D308B7500D7530C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2DC70901D308DB400D7530C /* fighterspr1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fighterspr1.png; sourceTree = "<group>"; };
+		A2DC70921D319DE100D7530C /* cartoonship blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cartoonship blue.png"; sourceTree = "<group>"; };
+		A2DC70931D319DE100D7530C /* F5S4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = F5S4.png; sourceTree = "<group>"; };
+		A2DC70941D319DE100D7530C /* fighter-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fighter-01.png"; sourceTree = "<group>"; };
+		A2DC70961D319DE100D7530C /* ship3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship3.png; sourceTree = "<group>"; };
+		A2DC70971D319DE100D7530C /* ship9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship9.png; sourceTree = "<group>"; };
+		A2DC70981D319DE100D7530C /* space_rocket_v4-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "space_rocket_v4-512.png"; sourceTree = "<group>"; };
+		A2DC70991D319DE100D7530C /* spaceship.pod_.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceship.pod_.1.png; sourceTree = "<group>"; };
+		A2DC709A1D319DE100D7530C /* spaceShipIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceShipIcon.png; sourceTree = "<group>"; };
+		A2DC709B1D319DE100D7530C /* st6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = st6.png; sourceTree = "<group>"; };
+		A2DC70A61D319F9700D7530C /* grad1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grad1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +129,17 @@
 				A2DC70621D308B7400D7530C /* GameViewController.swift */,
 				A2DC70641D308B7400D7530C /* Main.storyboard */,
 				A2DC70671D308B7400D7530C /* Assets.xcassets */,
+				A2DC70A61D319F9700D7530C /* grad1.png */,
+				A2DC70901D308DB400D7530C /* fighterspr1.png */,
+				A2DC70921D319DE100D7530C /* cartoonship blue.png */,
+				A2DC70931D319DE100D7530C /* F5S4.png */,
+				A2DC70941D319DE100D7530C /* fighter-01.png */,
+				A2DC70961D319DE100D7530C /* ship3.png */,
+				A2DC70971D319DE100D7530C /* ship9.png */,
+				A2DC70981D319DE100D7530C /* space_rocket_v4-512.png */,
+				A2DC70991D319DE100D7530C /* spaceship.pod_.1.png */,
+				A2DC709A1D319DE100D7530C /* spaceShipIcon.png */,
+				A2DC709B1D319DE100D7530C /* st6.png */,
 				A2DC70691D308B7400D7530C /* LaunchScreen.storyboard */,
 				A2DC706C1D308B7400D7530C /* Info.plist */,
 			);
@@ -238,10 +271,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2DC70A51D319DE100D7530C /* st6.png in Resources */,
+				A2DC70A11D319DE100D7530C /* ship9.png in Resources */,
+				A2DC709E1D319DE100D7530C /* fighter-01.png in Resources */,
 				A2DC705F1D308B7400D7530C /* GameScene.sks in Resources */,
+				A2DC709D1D319DE100D7530C /* F5S4.png in Resources */,
 				A2DC706B1D308B7400D7530C /* LaunchScreen.storyboard in Resources */,
 				A2DC70681D308B7400D7530C /* Assets.xcassets in Resources */,
+				A2DC70A21D319DE100D7530C /* space_rocket_v4-512.png in Resources */,
+				A2DC70911D308DB400D7530C /* fighterspr1.png in Resources */,
+				A2DC70A71D319F9700D7530C /* grad1.png in Resources */,
+				A2DC70A41D319DE100D7530C /* spaceShipIcon.png in Resources */,
+				A2DC70A31D319DE100D7530C /* spaceship.pod_.1.png in Resources */,
+				A2DC70A01D319DE100D7530C /* ship3.png in Resources */,
 				A2DC70661D308B7400D7530C /* Main.storyboard in Resources */,
+				A2DC709C1D319DE100D7530C /* cartoonship blue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
