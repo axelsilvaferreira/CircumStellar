@@ -36,16 +36,23 @@ class GameOverScene: SKScene {
         
         // para mostrar o score
         let scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: 40))
-        scoreLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - (view.frame.size.height / 4)))
-        scoreLabel.text = "\(score)"
+        scoreLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - (view.frame.size.height / 3)))
+        scoreLabel.text = "Score : \(score)"
         self.view?.addSubview(scoreLabel)
         
         // para mostrar o record
         let highScoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: 40))
         highScoreLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - (view.frame.size.height / 2)))
-        highScoreLabel.text = "\(highScore)"
+        highScoreLabel.text = "Record : \(highScore)"
         self.view?.addSubview(highScoreLabel)
         
+        
+        let gameOverLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: 40))
+        gameOverLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - 400))
+        gameOverLabel.text = "Game Over"
+        gameOverLabel.textColor = UIColor.whiteColor()
+        gameOverLabel.backgroundColor = UIColor.redColor()
+        self.view?.addSubview(gameOverLabel)
     }
     
     

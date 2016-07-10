@@ -21,6 +21,7 @@
   Criar musica melodica loop 16 BITS (ver tiny wings)
   Acrescentar poderes (ex 2x shooting speed)
   Adicionar multiplas vidas
+  adicionar efeito de nave a virar ligeiramente esq e dir
  */
 
 
@@ -103,9 +104,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.dynamic = false
         
         
-        var bulletTimer = NSTimer.scheduledTimerWithTimeInterval(nTirosTempo, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(nTirosTempo, target: self, selector: #selector(GameScene.spawnBullets), userInfo: nil, repeats: true)
         
-        var enemyTimer = NSTimer.scheduledTimerWithTimeInterval(nEnimigosTempo, target: self, selector: #selector(GameScene.spawnEnemies), userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(nEnimigosTempo, target: self, selector: #selector(GameScene.spawnEnemies), userInfo: nil, repeats: true)
         
         // adicionar o player a view
         self.addChild(player)
@@ -168,7 +169,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             scoreDefaults.setValue(score, forKey: "Score")
             
             if (self.score > highScore) {
-                var highScoreDefaults = NSUserDefaults.standardUserDefaults()
+                let highScoreDefaults = NSUserDefaults.standardUserDefaults()
                 highScoreDefaults.setValue(self.score, forKey: "highScore")
             }
             
