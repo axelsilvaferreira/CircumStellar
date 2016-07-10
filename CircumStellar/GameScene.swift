@@ -62,6 +62,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var lives = Int()
     // Score do player
     var score = Int()
+    // Record anterior
+    var highScore = Int()
     // Enemy killed
     var enemyKilled = Int()
     // Times Died
@@ -72,7 +74,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         // obrigatorio para usar SKPhysicsContactDelegate
         physicsWorld.contactDelegate = self
+        // vidas iniciais do player
         lives = 0;
+        
+        let highScoreDefault = NSUserDefaults.standardUserDefaults()
+        if (highScoreDefault.valueForKey("highScore") != nil ) {
+            highScore = highScoreDefault.valueForKey("highScore") as! NSInteger
+        }
+        else {
+            highScore = 0
+        }
+        
+        self.addChild(SKEmitterNode(fileNamed: "SnowParticle" )!)
+        
+        
         // Tamanho do player
         //player.size.height = player.size.height / 10
         //player.size.width = player.size.width / 10
@@ -149,12 +164,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // testar se tem vidas e remover uma, caso contrario Game Over Scene
         if (lives == 0){
             
-            self.view?.presentScene(SKScene(fileNamed: "GameOverScene"))
+            let scoreDefaults = NSUserDefaults.standardUserDefaults()
+            scoreDefaults.setValue(score, forKey: "Score")
+            
+            if (self.score > highScore) {
+                var highScoreDefaults = NSUserDefaults.standardUserDefaults()
+                highScoreDefaults.setValue(self.score, forKey: "highScore")
+            }
+            
+            self.view?.presentScene(GameOverScene())
             self.scoreLabel.removeFromSuperview()
+            
         }
         else {
             lives = lives - 1
         }
+        
         
     }
     
