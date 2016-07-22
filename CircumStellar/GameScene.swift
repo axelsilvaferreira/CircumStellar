@@ -65,10 +65,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                              ("fighter-01.png", 10),
                                              ("pizza_slice.png", 3),
                                              ("space_rocket_v4-512.png", 5),
-                                             ("ship3.png", 4)
+                                             ("F5S4.png", 4)
                                             ]
-    
-    // Ammo
+    //Ammo
+    var ammo = SKSpriteNode()
+    // Ammo Array
+    var ammoArray : [(String, CGFloat)] =   [("grad3.png", 1),
+                                             ("Pepperoni.png", 6),
+                                             ("", 1)
+                                            ]
     //var ammonition = SKSpriteNode(imageNamed: "grad3.png")
     //var ammonition = SKSpriteNode(imageNamed: "Pepperoni.png")
     
@@ -108,7 +113,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         // Escolhe a skin do player
-        let (pl, sz) = playerArray[5]
+        let (pl, sz) = playerArray[0]
         player = SKSpriteNode(imageNamed: pl)
         // Altera o tamanho do player
         player.size.height = player.size.height / sz
@@ -209,30 +214,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Criar as balas e posicionar por tras do player
         //var bullet = ammonition
-        let bullet = SKSpriteNode(imageNamed: "Pepperoni.png")
-        
+        let (am, sz) = ammoArray[1]
+        ammo = SKSpriteNode(imageNamed: am)
         // Tamanho da munição
-        bullet.size.height = bullet.size.height / 10
-        bullet.size.width = bullet.size.width / 10
+        ammo.size.height = ammo.size.height / sz
+        ammo.size.width = ammo.size.width / sz
         
         
         
-        bullet.zPosition = -5
-        bullet.position = CGPointMake(player.position.x, player.position.y)
+        ammo.zPosition = -5
+        ammo.position = CGPointMake(player.position.x, player.position.y)
         
         // Mover a bala para frente
         let action = SKAction.moveToY(self.size.height + 40, duration: vTirosTempo)
         let actionDone = SKAction.removeFromParent()
-        bullet.runAction(SKAction.sequence([action, actionDone]))
+        ammo.runAction(SKAction.sequence([action, actionDone]))
         
         // fisicos do jogo
-        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: bullet.size)
-        bullet.physicsBody?.affectedByGravity = false
-        bullet.physicsBody?.categoryBitMask = physicsCategory.bullet
-        bullet.physicsBody?.contactTestBitMask = physicsCategory.enemy
-        bullet.physicsBody?.dynamic = false
+        ammo.physicsBody = SKPhysicsBody(rectangleOfSize: ammo.size)
+        ammo.physicsBody?.affectedByGravity = false
+        ammo.physicsBody?.categoryBitMask = physicsCategory.bullet
+        ammo.physicsBody?.contactTestBitMask = physicsCategory.enemy
+        ammo.physicsBody?.dynamic = false
         
-        self.addChild(bullet)
+        self.addChild(ammo)
         
         
     }
