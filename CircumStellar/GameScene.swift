@@ -12,7 +12,7 @@
  √ criar variaveis de classe para os varios valores (macros faceis de alterar )
   criar ecra inicial
  √ criar sistema de pontos
-  evitar spawn enimigos no limite
+  evitar spawn enimigos no limite  <=
  √ eliminar enimigos
   criar multiplos mapas
   criar dificuldade crescente dentro do mapa
@@ -22,6 +22,8 @@
   Acrescentar poderes (ex 2x shooting speed)
   Adicionar multiplas vidas
   adicionar efeito de nave a virar ligeiramente esq e dir
+  reset score && icloud sync score
+  heatbox transparency
  */
 
 
@@ -54,11 +56,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var nTirosTempo : NSTimeInterval = 0.2
     // vel_tiros / seg
     var vTirosTempo : NSTimeInterval = 0.6
-    
     // Player
-    //var player = SKSpriteNode(imageNamed: "space_rocket_v4-512.png")
-    //var player = SKSpriteNode(imageNamed: "fighterspr1.png")
-    var player = SKSpriteNode(imageNamed: "st6.png")
+    var player = SKSpriteNode()
+    // Players Array
+    var playerArray : [(String, CGFloat)] = [("st6.png", 6),
+                                             ("fighterspr1.png", 10),
+                                             ("spaceShipIcon.png", 6),
+                                             ("fighter-01.png", 10),
+                                             ("pizza_slice.png", 3),
+                                             ("space_rocket_v4-512.png", 5),
+                                             ("ship3.png", 4)
+                                            ]
+    
+    // Ammo
+    //var ammonition = SKSpriteNode(imageNamed: "grad3.png")
+    //var ammonition = SKSpriteNode(imageNamed: "Pepperoni.png")
+    
+    
+    
+    
     // Vidas
     var lives = Int()
     // Score do player
@@ -78,6 +94,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // vidas iniciais do player
         lives = 0;
         
+        
         let highScoreDefault = NSUserDefaults.standardUserDefaults()
         if (highScoreDefault.valueForKey("highScore") != nil ) {
             highScore = highScoreDefault.valueForKey("highScore") as! NSInteger
@@ -86,14 +103,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             highScore = 0
         }
         
+        // Adiciona o efeito de fundo das particulas
         self.addChild(SKEmitterNode(fileNamed: "SnowParticle" )!)
         
         
-        // Tamanho do player
-        //player.size.height = player.size.height / 10
-        //player.size.width = player.size.width / 10
-        player.size.height = player.size.height / 6
-        player.size.width = player.size.width / 6
+        // Escolhe a skin do player
+        let (pl, sz) = playerArray[5]
+        player = SKSpriteNode(imageNamed: pl)
+        // Altera o tamanho do player
+        player.size.height = player.size.height / sz
+        player.size.width = player.size.width / sz
+        
         
         // Posição do player
         player.position = CGPointMake(self.size.width/2, self.size.height/8)
@@ -131,14 +151,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (( fstBody.categoryBitMask == physicsCategory.enemy) && (sndBody.categoryBitMask == physicsCategory.bullet ) ||
             ( fstBody.categoryBitMask == physicsCategory.bullet) && (sndBody.categoryBitMask == physicsCategory.enemy )) {
             
-            colisionWithBullet(fstBody.node as! SKSpriteNode , bullet: sndBody.node as! SKSpriteNode)
+            colisionWithBullet(fstBody.node as! SKSpriteNode, bullet: sndBody.node as! SKSpriteNode)
         
         }
         // Enemy colision with Player
         if (( fstBody.categoryBitMask == physicsCategory.enemy) && (sndBody.categoryBitMask == physicsCategory.player ) ||
             ( fstBody.categoryBitMask == physicsCategory.player) && (sndBody.categoryBitMask == physicsCategory.enemy )) {
             
-            colisionWithPlayer(fstBody.node as! SKSpriteNode , player: sndBody.node as! SKSpriteNode)
+            colisionWithPlayer(fstBody.node as! SKSpriteNode, player: sndBody.node as! SKSpriteNode)
             
         }
         
@@ -188,7 +208,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func spawnBullets() {
         
         // Criar as balas e posicionar por tras do player
-        let bullet = SKSpriteNode(imageNamed: "grad3.png")
+        //var bullet = ammonition
+        let bullet = SKSpriteNode(imageNamed: "Pepperoni.png")
+        
+        // Tamanho da munição
+        bullet.size.height = bullet.size.height / 10
+        bullet.size.width = bullet.size.width / 10
+        
+        
         
         bullet.zPosition = -5
         bullet.position = CGPointMake(player.position.x, player.position.y)
@@ -222,11 +249,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.size.height = enemy.size.height / 8
         enemy.size.width = enemy.size.width / 8
         
-        let minValue = self.size.width / 8
-        let maxValue = self.size.width - 20
-        let spawnPoint = UInt32( maxValue - minValue )
-        // posição random do enimigo
-        enemy.position = CGPoint(x: CGFloat(arc4random_uniform(spawnPoint)), y: self.size.height + 20)
+        // randomize da posição x para spwan
+        let xPos = randomBetweenNumbers(0, secondNum: frame.width )
+        
+        enemy.position = CGPoint(x: xPos, y: self.size.height + 20)
         
         let action = SKAction.moveToY(-40, duration: vEnimigosTempo)
         let actionDone = SKAction.removeFromParent()
@@ -243,6 +269,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(enemy)
         
     }
+    
+    
+    // funcao que gera um random para spawn
+    func randomBetweenNumbers(firstNum: CGFloat, secondNum: CGFloat) -> CGFloat{
+        return CGFloat(arc4random()) / CGFloat(UINT32_MAX) * abs(firstNum - secondNum) + min(firstNum, secondNum)
+    }
+    
     
     // permite mover o jogador progressivamente
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
