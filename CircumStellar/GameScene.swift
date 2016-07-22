@@ -58,6 +58,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var vTirosTempo : NSTimeInterval = 0.6
     // Player
     var player = SKSpriteNode()
+    // Player Skinn Atual
+    var playerSkinIndex : Int = 0
     // Players Array
     var playerArray : [(String, CGFloat)] = [("st6.png", 6),
                                              ("fighterspr1.png", 10),
@@ -67,15 +69,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                              ("space_rocket_v4-512.png", 5),
                                              ("F5S4.png", 4)
                                             ]
-    //Ammo
+    // Ammo
     var ammo = SKSpriteNode()
+    // Player Ammo Atual
+    var playerAmmoIndex : Int = 0
     // Ammo Array
     var ammoArray : [(String, CGFloat)] =   [("grad3.png", 1),
-                                             ("Pepperoni.png", 6),
+                                             ("Pepperoni.png", 8),
                                              ("", 1)
                                             ]
-    //var ammonition = SKSpriteNode(imageNamed: "grad3.png")
-    //var ammonition = SKSpriteNode(imageNamed: "Pepperoni.png")
+
+    // Enemy
+    var enemy = SKSpriteNode()
+    // Enemy Skin
+    var enemySkinIndex : Int = 0
+    // 
     
     
     
@@ -98,7 +106,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         // vidas iniciais do player
         lives = 0;
-        
+        //Skin do player atual
+        playerSkinIndex = 0
+        //Skin da ammo atual
+        playerAmmoIndex = 0
+        //Skin do Enimigo Atual
         
         let highScoreDefault = NSUserDefaults.standardUserDefaults()
         if (highScoreDefault.valueForKey("highScore") != nil ) {
@@ -113,7 +125,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         // Escolhe a skin do player
-        let (pl, sz) = playerArray[0]
+        let (pl, sz) = playerArray[playerSkinIndex]
         player = SKSpriteNode(imageNamed: pl)
         // Altera o tamanho do player
         player.size.height = player.size.height / sz
@@ -172,8 +184,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func colisionWithBullet(enemy : SKSpriteNode, bullet : SKSpriteNode){
-        enemy.removeFromParent()
         bullet.removeFromParent()
+        enemy.removeFromParent()
         enemyKilled = enemyKilled + 1
         score = score + sEnemyOne
         
@@ -183,8 +195,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func colisionWithPlayer(enemy : SKSpriteNode, player : SKSpriteNode){
-        enemy.removeFromParent()
-        player.removeFromParent()
+        //player.removeFromParent()
+        enemy.hidden = true //removeFromParent()
         enemyKilled = enemyKilled + 1
         
         // testar se tem vidas e remover uma, caso contrario Game Over Scene
@@ -214,7 +226,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Criar as balas e posicionar por tras do player
         //var bullet = ammonition
-        let (am, sz) = ammoArray[1]
+        let (am, sz) = ammoArray[playerAmmoIndex]
         ammo = SKSpriteNode(imageNamed: am)
         // Tamanho da munição
         ammo.size.height = ammo.size.height / sz
@@ -222,7 +234,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        ammo.zPosition = -5
+        ammo.zPosition = 0
         ammo.position = CGPointMake(player.position.x, player.position.y)
         
         // Mover a bala para frente
