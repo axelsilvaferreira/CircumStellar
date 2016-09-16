@@ -18,7 +18,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     var highScoreLabel : UILabel!
     var gameOverLabel : UILabel!
     
-    override func didMoveToView(view: SKView ) {
+    override func didMove(to view: SKView ) {
        
         physicsWorld.contactDelegate = self
         
@@ -28,25 +28,25 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         
         restartButton = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: 40))
         restartButton.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - (view.frame.size.height / 6)))
-        restartButton.setTitle("Restart", forState: UIControlState.Normal)
-        restartButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
-        restartButton.addTarget(self, action: #selector(GameOverScene.restart), forControlEvents: UIControlEvents.TouchUpInside )
+        restartButton.setTitle("Restart", for: UIControlState())
+        restartButton.setTitleColor(UIColor.white, for: UIControlState())
+        restartButton.addTarget(self, action: #selector(GameOverScene.restart), for: UIControlEvents.touchUpInside )
         self.view?.addSubview(restartButton)
         
-        let scoreDefaults = NSUserDefaults.standardUserDefaults()
-        let score = scoreDefaults.valueForKey("Score") as! NSInteger
+        let scoreDefaults = UserDefaults.standard
+        let score = scoreDefaults.value(forKey: "Score") as! NSInteger
         NSLog("your Score:\(score)")
         
-        let highScoreDefaults = NSUserDefaults.standardUserDefaults()
-        highScore = highScoreDefaults.valueForKey("highScore") as! NSInteger
+        let highScoreDefaults = UserDefaults.standard
+        highScore = highScoreDefaults.value(forKey: "highScore") as! NSInteger
         NSLog("your High Score\(highScore)")
         
         // para mostrar o score
         scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: 40))
         scoreLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - (view.frame.size.height / 3)))
         scoreLabel.text = "Score : \(score)"
-        scoreLabel.backgroundColor = UIColor.blackColor()
-        scoreLabel.textColor = UIColor.whiteColor()
+        scoreLabel.backgroundColor = UIColor.black
+        scoreLabel.textColor = UIColor.white
         scoreLabel.textAlignment = NSTextAlignment(rawValue: 1)!
         self.view?.addSubview(scoreLabel)
         
@@ -54,8 +54,8 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         highScoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.size.width / 2 , height: 40))
         highScoreLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - (view.frame.size.height / 2)))
         highScoreLabel.text = "Record : \(highScore)"
-        highScoreLabel.backgroundColor = UIColor.blackColor()
-        highScoreLabel.textColor = UIColor.whiteColor()
+        highScoreLabel.backgroundColor = UIColor.black
+        highScoreLabel.textColor = UIColor.white
         highScoreLabel.textAlignment = NSTextAlignment(rawValue: 1)!
         self.view?.addSubview(highScoreLabel)
         
@@ -64,8 +64,8 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
         gameOverLabel.center = CGPoint(x: view.frame.size.width / 2 , y: (view.frame.size.height - 450))
         gameOverLabel.text = "Game Over"
         gameOverLabel.textAlignment = NSTextAlignment(rawValue: 1)!
-        gameOverLabel.textColor = UIColor.whiteColor()
-        gameOverLabel.backgroundColor = UIColor.blackColor()
+        gameOverLabel.textColor = UIColor.white
+        gameOverLabel.backgroundColor = UIColor.black
         self.view?.addSubview(gameOverLabel)
         
         
@@ -74,7 +74,7 @@ class GameOverScene: SKScene, SKPhysicsContactDelegate {
     
     func restart()  {
         
-        self.view?.presentScene(GameScene(), transition: SKTransition.crossFadeWithDuration(0.3))
+        self.view?.presentScene(GameScene() ) //Scene(GameScene(), transition: SKTransition.crossFadeWithDuration(0.3))
         restartButton.removeFromSuperview()
         highScoreLabel.removeFromSuperview()
         scoreLabel.removeFromSuperview()

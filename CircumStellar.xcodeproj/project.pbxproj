@@ -57,7 +57,6 @@
 		A25BF5EF1D31EA3A00DD4D77 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		A25BF5F21D31EC5600DD4D77 /* SnowParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle.sks; sourceTree = "<group>"; };
 		A27D00D31D3201A0003B378B /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = ../spark.png; sourceTree = "<group>"; };
-		A27D00D91D331975003B378B /* App Playground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = "App Playground.playground"; path = "CircumStellar/App Playground.playground"; sourceTree = "<group>"; };
 		A2BD2FE61D41AB5D00B922B7 /* F5S4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = F5S4.png; sourceTree = "<group>"; };
 		A2BD2FE81D41AB9300B922B7 /* cartoonship blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cartoonship blue.png"; sourceTree = "<group>"; };
 		A2BD2FE91D41AB9300B922B7 /* ship3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship3.png; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 				A2DC70741D308B7400D7530C /* CircumStellarTests */,
 				A2DC707F1D308B7500D7530C /* CircumStellarUITests */,
 				A2DC705A1D308B7400D7530C /* Products */,
-				A27D00D91D331975003B378B /* App Playground.playground */,
 			);
 			sourceTree = "<group>";
 		};
@@ -279,15 +277,18 @@
 					A2DC70581D308B7400D7530C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = UTZWZXL73S;
+						LastSwiftMigration = 0800;
 					};
 					A2DC70701D308B7400D7530C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = UTZWZXL73S;
+						LastSwiftMigration = 0800;
 						TestTargetID = A2DC70581D308B7400D7530C;
 					};
 					A2DC707B1D308B7500D7530C = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = UTZWZXL73S;
+						LastSwiftMigration = 0800;
 						TestTargetID = A2DC70581D308B7400D7530C;
 					};
 				};
@@ -510,6 +511,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = axelferreira.CircumStellar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -521,6 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = axelferreira.CircumStellar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -533,6 +536,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = axelferreira.CircumStellarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CircumStellar.app/CircumStellar";
 			};
 			name = Debug;
@@ -545,6 +549,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = axelferreira.CircumStellarTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CircumStellar.app/CircumStellar";
 			};
 			name = Release;
@@ -557,6 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = axelferreira.CircumStellarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = CircumStellar;
 			};
 			name = Debug;
@@ -568,6 +574,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = axelferreira.CircumStellarUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = CircumStellar;
 			};
 			name = Release;
